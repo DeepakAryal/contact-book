@@ -4,12 +4,12 @@
 parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
-    database_port:     ~
+    database_port:     3335
     database_name:     contact_book
     database_port:     null
     database_charset:  UTF8
     database_user:     root
-    database_password: just123
+    database_password: root
     locale:             en
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"

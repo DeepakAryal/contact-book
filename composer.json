@@ -26,7 +26,9 @@
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
         "symfony/phpunit-bridge": "~2.7",
-        "fabpot/php-cs-fixer": "dev-master"
+        "fabpot/php-cs-fixer": "dev-master",
+        "phpunit/phpunit": "^4.6||^5.4",
+        "vlucas/phpdotenv": "dev-master as 2.4-dev"
     },
     "scripts": {
         "post-install-cmd": [
