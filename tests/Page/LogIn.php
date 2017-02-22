@@ -1,6 +1,7 @@
 <?php
 
 namespace ContactBook\Tests\Page;
+
 /**
  * Created by PhpStorm.
  * User: deepak
@@ -16,21 +17,21 @@ class LogIn
 
     public function getPasswordField()
     {
-
+        return 'input#password';
     }
 
     public function getSubmitButton()
     {
-
+        return 'input#_submit';
     }
 
     public function getRegisterButoon()
     {
-
+        return 'a[name="create_account"]';
     }
 
     public function getPasswordForgetLink()
     {
-
+        return 'a[href="/resetting/request"]';
     }
 }

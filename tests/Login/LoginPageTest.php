@@ -3,27 +3,23 @@
 namespace ContactBook\Tests\Login;
 
 use ContactBook\Tests\AbstractTestCase;
-use ContactBook\Tests\Login;
+use ContactBook\Tests\Page\LogIn;
 
 class LoginPageTest extends AbstractTestCase
 {
     public function testUserNameField()
     {
-        $page = new Login();
-
         $this->assertEquals(
             1,
-            $this->getLogInCrawler()->filter($page->getUserNameField())->count()
+            $this->getLogInCrawler()->filter($this->getPage()->getUserNameField())->count()
         );
     }
 
     public function testPasswordField()
     {
-        $page = new Login();
-
         $this->assertEquals(
             1,
-            $this->getLogInCrawler()->filter($page->getPasswordField())->count()
+            $this->getLogInCrawler()->filter($this->getPage()->getPasswordField())->count()
         );
     }
 
@@ -31,7 +27,7 @@ class LoginPageTest extends AbstractTestCase
     {
         $this->assertEquals(
             1,
-            $this->getLogInCrawler()->filter('input#_submit')->count()
+            $this->getLogInCrawler()->filter($this->getPage()->getSubmitButton())->count()
         );
     }
 
@@ -39,7 +35,7 @@ class LoginPageTest extends AbstractTestCase
     {
         $this->assertEquals(
             1,
-            $this->getLogInCrawler()->filter('a[name="create_account"]')->count()
+            $this->getLogInCrawler()->filter($this->getPage()->getRegisterButoon())->count()
         );
     }
 
@@ -47,7 +43,7 @@ class LoginPageTest extends AbstractTestCase
     {
         $this->assertEquals(
             1,
-            $this->getLogInCrawler()->filter('a[href="/resetting/request"]')->count()
+            $this->getLogInCrawler()->filter($this->getPage()->getPasswordForgetLink())->count()
         );
     }
 
@@ -57,5 +53,10 @@ class LoginPageTest extends AbstractTestCase
             ->request('GET', '/login');
 
         return $crawler;
+    }
+
+    protected function getPage()
+    {
+        return new LogIn();
     }
 }
