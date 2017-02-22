@@ -1,33 +1,29 @@
 <?php
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+namespace ContactBook\Tests\Login;
 
-class LoginPageTest extends WebTestCase
+use ContactBook\Tests\AbstractTestCase;
+use ContactBook\Tests\Login;
+
+class LoginPageTest extends AbstractTestCase
 {
-    protected $client;
-
-    public function setUp()
-    {
-        try {
-            $this->client = static::createClient();
-        } catch (PropelException $e) {
-            $this->client = static::createClient();
-        }
-    }
-
     public function testUserNameField()
     {
+        $page = new Login();
+
         $this->assertEquals(
             1,
-            $this->getLogInCrawler()->filter('input#username')->count()
+            $this->getLogInCrawler()->filter($page->getUserNameField())->count()
         );
     }
 
     public function testPasswordField()
     {
+        $page = new Login();
+
         $this->assertEquals(
             1,
-            $this->getLogInCrawler()->filter('input#password')->count()
+            $this->getLogInCrawler()->filter($page->getPasswordField())->count()
         );
     }
 
@@ -53,11 +49,6 @@ class LoginPageTest extends WebTestCase
             1,
             $this->getLogInCrawler()->filter('a[href="/resetting/request"]')->count()
         );
-    }
-
-    protected function getClient()
-    {
-        return $this->client;
     }
 
     protected function getLogInCrawler()
