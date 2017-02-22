@@ -8,6 +8,7 @@
 namespace ContactBookBundle\Form;
 
 use ContactBookBundle\Model\Phone;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,7 +26,7 @@ class PhoneFormType extends AbstractType
     }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('phone_number', 'number', array(
+        $builder->add('phone_number', NumberType::class, array(
             'label' => 'phone.phonenumber',
 
             'required' => false,

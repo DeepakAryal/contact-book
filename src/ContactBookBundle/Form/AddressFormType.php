@@ -7,6 +7,7 @@
  */
 namespace ContactBookBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use ContactBookBundle\Model\Address;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -25,17 +26,17 @@ class AddressFormType extends AbstractType
     }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('country', 'text', array(
+        $builder->add('country', TextType::class, array(
             'label' => 'address.country',
             'required' => false,
         ));
 
-        $builder->add('district', 'text', array(
+        $builder->add('district', TextType::class, array(
             'label' => 'address.district',
             'required' => false
         ));
 
-        $builder->add('village_city', 'text', array(
+        $builder->add('village_city', TextType::class, array(
             'label' => 'address.villagecity',
             'required'    => false,
             'empty_data'  => null
